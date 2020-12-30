@@ -1,0 +1,18 @@
+{
+  "name": "fragment-viewer",
+  "version": "1.0.0",
+  "description": "Add a textFragment Anchor to the OURN spec, like this:",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "capture-website": "^1.2.7",
+    "express": "^4.17.1",
+    "md5": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
