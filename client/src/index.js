@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Main from "./Main";
-import Test from "./Test";
+import Main from "./Components/Main";
+import Test from "./Components/Test";
 
 const Routing = () => {
   return (
