@@ -61,3 +61,9 @@ Here are all the chrome/puppeteer launch options:
 https://github.com/puppeteer/puppeteer/blob/v5.5.0/docs/api.md#puppeteerlaunchoptions
 
 - [https://github.com/puppeteer/examples/blob/master/element-to-pdf.js#L92](How to getnerate an `<img>` link on the fly)
+
+## Deploying dev on Heroku
+
+https://daveceddia.com/deploy-react-express-app-heroku/
+
+https://www.codementor.io/@rajjeet/step-by-step-how-to-add-redux-to-a-react-app-11tcgslmvi
