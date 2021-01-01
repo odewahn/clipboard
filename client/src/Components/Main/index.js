@@ -1,19 +1,14 @@
 import "./index.css";
 import { Button } from "@material-ui/core";
+import Screenshot from "../Screenshot";
 
 const Main = () => {
   return (
     <div>
       <h1>Hello, Andrew!</h1>
-      <img
-        width="480"
-        src="http://localhost:5000/screenshot?url=https://www.oreilly.com"
-      ></img>
+      <Screenshot src="http://localhost:5000/screenshot?url=https://www.oreilly.com" />
       <br />
-      <img
-        width="480"
-        src="http://localhost:5000/screenshot?url=https://www.google.com"
-      ></img>
+      <Screenshot src="http://localhost:5000/screenshot?url=https://www.google.com" />
       <br />
       <Button variant="contained" color="primary">
         Click me!
