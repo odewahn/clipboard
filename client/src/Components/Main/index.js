@@ -10,6 +10,11 @@ const Main = () => {
         src="http://localhost:5000/screenshot?url=https://www.oreilly.com"
       ></img>
       <br />
+      <img
+        width="480"
+        src="http://localhost:5000/screenshot?url=https://www.google.com"
+      ></img>
+      <br />
       <Button variant="contained" color="primary">
         Click me!
       </Button>

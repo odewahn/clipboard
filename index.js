@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const captureWebsite = require("capture-website");
 const path = require("path");
 var md5 = require("md5");
+const fs = require("fs");
 
 let app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,39 +23,45 @@ app.get("/screenshot", async function (req, res) {
   // Grab the encoded URL paramater
   let url = decodeURI(req.query.url);
 
-  console.log("**************** Screenshotting *********************");
-  console.log(url);
-
+  // Use the md5 sha as the filename for the screenshot
+  // This way we can tell if we've already screenshotted it before
+  // If so, we can just send back the file
   let fn = path.join(__dirname, "tmp", "/", md5(url) + ".png");
 
-  console.log(fn);
-
-  let img = await captureWebsite.file(url, fn, {
-    width: 720,
-    height: 480,
-    fullPage: false,
-    overwrite: true,
-    cookies: [
-      {
-        domain: "learning.oreilly.com",
-        name: "orm-jwt",
-        value: process.env.ORM_JWT,
-      },
-    ],
-  });
-
-  var options = {
-    headers: {
-      "Content-Type": "image/png",
-    },
-  };
-
-  res.sendFile(fn, options, function (err) {
+  // Determine if the screenshotted file already exists
+  fs.access(fn, fs.F_OK, async (err) => {
     if (err) {
-      console.log(err);
-    } else {
-      console.log("Sent:", fn);
+      // if the file does not exist, then take the screenshot and save it
+      console.log("**************** Screenshotting *********************");
+      console.log(url);
+      let img = await captureWebsite.file(url, fn, {
+        width: 720,
+        height: 480,
+        fullPage: false,
+        overwrite: true,
+        cookies: [
+          {
+            domain: "learning.oreilly.com",
+            name: "orm-jwt",
+            value: process.env.ORM_JWT,
+          },
+        ],
+      });
     }
+    // Set the content type header
+    var options = {
+      headers: {
+        "Content-Type": "image/png",
+      },
+    };
+    // Send the file back to the browser as a png
+    res.sendFile(fn, options, (err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("Sent:", fn);
+      }
+    });
   });
 });
 
