@@ -20,8 +20,8 @@ app.use(express.static(path.join(__dirname, "client/build")));
 
 // Function to handle the root path
 app.get("/screenshot", async function (req, res) {
-  // Grab the encoded URL paramater
-  let url = decodeURI(req.query.url);
+  // Grab the pre-encoded URL paramater
+  let url = req.query.url;
 
   // Use the md5 sha as the filename for the screenshot
   // This way we can tell if we've already screenshotted it before
