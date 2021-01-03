@@ -27,13 +27,14 @@ app.get("/screenshot", async function (req, res) {
   // This way we can tell if we've already screenshotted it before
   // If so, we can just send back the file
   let fn = path.join(__dirname, "tmp", "/", md5(url) + ".png");
+  console.log("**************** Fetching *********************");
+  console.log(url);
 
   // Determine if the screenshotted file already exists
   fs.access(fn, fs.F_OK, async (err) => {
     if (err) {
       // if the file does not exist, then take the screenshot and save it
-      console.log("**************** Screenshotting *********************");
-      console.log(url);
+      console.log("Taking screeshot.");
       let img = await captureWebsite.file(url, fn, {
         width: 720,
         height: 480,
