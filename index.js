@@ -24,8 +24,9 @@ app.get("/screenshot", async function (req, res) {
   let url = req.query.url;
 
   // Use the md5 sha as the filename for the screenshot
-  // This way we can tell if we've already screenshotted it before
+  // This way we can tell if we've screenshotted and saved it previously
   // If so, we can just send back the file
+  // If not, then use capture-website to grab the image and save it
   let fn = path.join(__dirname, "tmp", "/", md5(url) + ".png");
   console.log("**************** Fetching *********************");
   console.log(url);

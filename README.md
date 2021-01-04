@@ -67,3 +67,9 @@ https://github.com/puppeteer/puppeteer/blob/v5.5.0/docs/api.md#puppeteerlaunchop
 https://daveceddia.com/deploy-react-express-app-heroku/
 
 https://www.codementor.io/@rajjeet/step-by-step-how-to-add-redux-to-a-react-app-11tcgslmvi
+
+## Converting markdown to HTML
+
+- [https://www.npmjs.com/package/react-markdown] Safely convert markdown to HTML
+
+- [https://stackoverflow.com/questions/65554773/how-should-i-manipulate-html-markdown-from-a-string-before-rendering-in-react](Shows how to insert a new DOM element after you've rendered the markdown.)
